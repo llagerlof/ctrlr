@@ -5,7 +5,7 @@
 # A shell script (bash) that replace the defaut CTRL+r behaviour.
 # It uses fzf to select a command from ~/.bash_history and copy it to the clipboard, so you can paste it anywhere.
 #
-# Version: 1.3.0
+# Version: 1.4.0
 # Author:  Lawrence Lagerlof <llagerlof@gmail.com>
 # GitHub:  http://github.com/llagerlof/ctrlr
 # License: https://opensource.org/licenses/MIT
@@ -32,7 +32,7 @@ if ! command -v fzf >/dev/null 2>&1; then
 fi
 
 # Read .bash_history and use fzf to select an item
-selected_command=$(awk '!lines[$0]++' ~/.bash_history | tac | fzf --query="$READLINE_LINE")
+selected_command=$(history | tac | awk '{$1=""; print substr($0, 2)}' | awk '!lines[$0]++' | fzf --query="$READLINE_LINE")
 
 # If a command was selected, copy it to the clipboard and show the copied command
 if [ -n "$selected_command" ]; then

@@ -5,7 +5,7 @@
 # A shell script (bash) that replace the defaut CTRL+r behaviour.
 # It uses fzf to select a command from ~/.bash_history and copy it to the clipboard, so you can paste it anywhere.
 #
-# Version: 1.2.0
+# Version: 1.3.0
 # Author:  Lawrence Lagerlof <llagerlof@gmail.com>
 # GitHub:  http://github.com/llagerlof/ctrlr
 # License: https://opensource.org/licenses/MIT
@@ -19,7 +19,7 @@
 # 4. Make it executable: chmod +x /usr/local/bin/ctrlr.sh
 # 5. Override the vanilla CTRL+r adding the following line to the end of your .bashrc:
 #
-#    bind -x '"\C-r": "/usr/local/bin/ctrlr.sh"'
+#    bind -x '"\C-r": "source /usr/local/bin/ctrlr.sh"'
 #
 # 6. Restart the terminal
 # 7. Be happy
@@ -44,7 +44,8 @@ if [ -n "$selected_command" ]; then
     echo "xclip or xsel not found. Please install one of them."
     exit 1
   fi
-  echo -e "The command below was copied to clipboard:\n\n$selected_command\n"
-else
-  echo "No command selected."
+
+  # Insert the selected command into the prompt and set the cursor position at the end of line
+  READLINE_LINE="$selected_command"
+  READLINE_POINT=${#READLINE_LINE}
 fi

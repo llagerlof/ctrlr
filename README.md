@@ -2,6 +2,8 @@
 
 A shell script that replaces the default `CTRL+r` behavior in `bash`. It uses `fzf` to select a command from `~/.bash_history` and insert the selected command into the prompt. It also copy the selected command to the clipboard, so you can paste it somewhere else.
 
+The listing includes all `.bash_history` commands plus the commands executed in current session.
+
 ## Installation
 
 1. Install `fzf` (your distro's packages repository _probably_ has it available to install)

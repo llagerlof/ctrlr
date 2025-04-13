@@ -32,7 +32,7 @@ if ! command -v fzf >/dev/null 2>&1; then
 fi
 
 # Read .bash_history and use fzf to select an item
-selected_command=$(history | tac | awk '{$1=""; print substr($0, 2)}' | fzf --no-sort --query="$READLINE_LINE")
+selected_command=$(history | tac | awk '{$1=""; print substr($0, 2)}' | fzf -e --no-sort --query="$READLINE_LINE")
 
 # If a command was selected, copy it to the clipboard and show the copied command
 if [ -n "$selected_command" ]; then

@@ -5,7 +5,7 @@
 # A shell script (bash) that replaces the default CTRL+r behavior.
 # It uses fzf to select a command from ~/.bash_history and copy it to the clipboard, so you can paste it anywhere.
 #
-# Version: 1.4.2
+# Version: 1.4.4
 # Author:  Lawrence Lagerlof <llagerlof@gmail.com>
 # GitHub:  http://github.com/llagerlof/ctrlr
 # License: https://opensource.org/licenses/MIT

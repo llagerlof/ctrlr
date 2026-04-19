@@ -13,6 +13,8 @@ First, install the dependencies:
 
 Then install `ctrlr.sh` using one of these options.
 
+The direct-download examples below use the current `master` branch. If you want to pin a specific version, replace `master` with a release tag or commit SHA.
+
 ### Install only for the current user
 
 If `~/.local/bin` is not already on your `PATH`, add it before using the user-local install options.

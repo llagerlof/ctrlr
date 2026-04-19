@@ -34,6 +34,8 @@ curl -fsSL https://raw.githubusercontent.com/llagerlof/ctrlr/master/ctrlr.sh -o 
 chmod +x ~/.local/bin/ctrlr.sh
 ```
 
+Before using the downloaded script, review `~/.local/bin/ctrlr.sh` to make sure you trust its contents.
+
 ### Install for everyone
 
 #### Option 3: clone the repository into a normal user's home directory and symlink it into `/usr/local/bin`
@@ -53,6 +55,8 @@ If you prefer `~/repositories`, replace `~/repos/ctrlr` with `~/repositories/ctr
 sudo curl -fsSL https://raw.githubusercontent.com/llagerlof/ctrlr/master/ctrlr.sh -o /usr/local/bin/ctrlr.sh
 sudo chmod +x /usr/local/bin/ctrlr.sh
 ```
+
+Before using the downloaded script, review `/usr/local/bin/ctrlr.sh` to make sure you trust its contents.
 
 After installing the script, override the vanilla `CTRL+r` by adding the matching line to the end of your `~/.bashrc`:
 

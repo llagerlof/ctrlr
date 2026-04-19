@@ -15,6 +15,8 @@ Then install `ctrlr.sh` using one of these options.
 
 ### Install only for the current user
 
+If `~/.local/bin` is not already on your `PATH`, add it before using the user-local install options.
+
 #### Option 1: clone the repository and symlink the script into `~/.local/bin`
 
 ```bash
@@ -28,13 +30,13 @@ If you prefer `~/repositories`, replace `~/repos/ctrlr` with `~/repositories/ctr
 
 #### Option 2: download the script directly into `~/.local/bin`
 
+Before running the download command, review <https://raw.githubusercontent.com/llagerlof/ctrlr/master/ctrlr.sh> to make sure you trust its contents.
+
 ```bash
 mkdir -p ~/.local/bin
 curl -fsSL https://raw.githubusercontent.com/llagerlof/ctrlr/master/ctrlr.sh -o ~/.local/bin/ctrlr.sh
 chmod +x ~/.local/bin/ctrlr.sh
 ```
-
-Before using the downloaded script, review `~/.local/bin/ctrlr.sh` to make sure you trust its contents.
 
 ### Install for everyone
 
@@ -51,12 +53,12 @@ If you prefer `~/repositories`, replace `~/repos/ctrlr` with `~/repositories/ctr
 
 #### Option 4: download the script directly into `/usr/local/bin`
 
+Before running the download command, review <https://raw.githubusercontent.com/llagerlof/ctrlr/master/ctrlr.sh> to make sure you trust its contents.
+
 ```bash
 sudo curl -fsSL https://raw.githubusercontent.com/llagerlof/ctrlr/master/ctrlr.sh -o /usr/local/bin/ctrlr.sh
 sudo chmod +x /usr/local/bin/ctrlr.sh
 ```
-
-Before using the downloaded script, review `/usr/local/bin/ctrlr.sh` to make sure you trust its contents.
 
 After installing the script, override the vanilla `CTRL+r` by adding the matching line to the end of your `~/.bashrc`:
 
@@ -72,7 +74,7 @@ bind -x '"\C-r": "source ~/.local/bin/ctrlr.sh"'
 bind -x '"\C-r": "source /usr/local/bin/ctrlr.sh"'
 ```
 
-Then restart the terminal. If `~/.local/bin` is not already on your `PATH`, add it before using the user-local install options.
+Then restart the terminal.
 
 ## License
 

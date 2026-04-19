@@ -6,16 +6,69 @@ The listing includes all `.bash_history` commands plus the commands executed in 
 
 ## Installation
 
-1. Install `fzf` (your distro's packages repository _probably_ has it available to install)
-2. (optional) Install `xclip` or `xsel` (your distro _probably_ has one of them already installed).
-3. Copy the `ctrlr.sh` file to `/usr/local/bin/` (you can copy it to another directory if you wish)
-4. Make it executable: `chmod +x /usr/local/bin/ctrlr.sh`
-5. Override the vanilla `CTRL+r` adding the following line to the end of your `~/.bashrc`:
+First, install the dependencies:
+
+1. Install `fzf` (your distro's package repository _probably_ has it available)
+2. (optional) Install `xclip` or `xsel` if you want clipboard integration
+
+Then install `ctrlr.sh` using one of these options.
+
+### Install only for the current user
+
+#### Option 1: clone the repository and symlink the script into `~/.local/bin`
+
+```bash
+mkdir -p ~/repos ~/.local/bin
+git clone https://github.com/llagerlof/ctrlr.git ~/repos/ctrlr
+chmod +x ~/repos/ctrlr/ctrlr.sh
+ln -sf ~/repos/ctrlr/ctrlr.sh ~/.local/bin/ctrlr.sh
 ```
+
+If you prefer `~/repositories`, replace `~/repos/ctrlr` with `~/repositories/ctrlr`.
+
+#### Option 2: download the script directly into `~/.local/bin`
+
+```bash
+mkdir -p ~/.local/bin
+curl -fsSL https://raw.githubusercontent.com/llagerlof/ctrlr/master/ctrlr.sh -o ~/.local/bin/ctrlr.sh
+chmod +x ~/.local/bin/ctrlr.sh
+```
+
+### Install for everyone
+
+#### Option 3: clone the repository into a normal user's home directory and symlink it into `/usr/local/bin`
+
+```bash
+mkdir -p ~/repos
+git clone https://github.com/llagerlof/ctrlr.git ~/repos/ctrlr
+chmod +x ~/repos/ctrlr/ctrlr.sh
+sudo ln -sf ~/repos/ctrlr/ctrlr.sh /usr/local/bin/ctrlr.sh
+```
+
+If you prefer `~/repositories`, replace `~/repos/ctrlr` with `~/repositories/ctrlr`.
+
+#### Option 4: download the script directly into `/usr/local/bin`
+
+```bash
+sudo curl -fsSL https://raw.githubusercontent.com/llagerlof/ctrlr/master/ctrlr.sh -o /usr/local/bin/ctrlr.sh
+sudo chmod +x /usr/local/bin/ctrlr.sh
+```
+
+After installing the script, override the vanilla `CTRL+r` by adding the matching line to the end of your `~/.bashrc`:
+
+- User-local install:
+
+```bash
+bind -x '"\C-r": "source ~/.local/bin/ctrlr.sh"'
+```
+
+- System-wide install:
+
+```bash
 bind -x '"\C-r": "source /usr/local/bin/ctrlr.sh"'
 ```
-6. Restart the terminal
-7. Be happy
+
+Then restart the terminal. If `~/.local/bin` is not already on your `PATH`, add it before using the user-local install options.
 
 ## License
 

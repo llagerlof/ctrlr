@@ -17,6 +17,19 @@ bind -x '"\C-r": "source /usr/local/bin/ctrlr.sh"'
 6. Restart the terminal
 7. Be happy
 
+## Reading the history from stdin
+
+`ctrlr.sh` also accepts a history list on stdin. When stdin is not a terminal, the lines are read from there instead of the current shell history, and the selected command is printed to stdout (it is still copied to the clipboard):
+
+```
+cat ~/.bash_history | ctrlr.sh
+ctrlr.sh < ~/.bash_history
+selected=$(cat ~/.bash_history | ctrlr.sh)
+grep git ~/.bash_history | ctrlr.sh
+```
+
+Lines that are `HISTTIMEFORMAT` timestamps (like `#1712345678`) are ignored. The `CTRL+r` binding described above is unaffected: when stdin is the terminal, the current shell history is used as always.
+
 ## License
 
 `ctrlr.sh` is released under the [MIT License](https://opensource.org/licenses/MIT).
